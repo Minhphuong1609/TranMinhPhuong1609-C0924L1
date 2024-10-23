@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Bài 1: Chuyển từ độ C sang độ F.</h2>
+<input type="text" placeholder="Nhập độ C" id="celius">
+<input type="button" onclick="convert()" value="Chuyển đổi">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+  function convert() {
+    let input = parseFloat(document.getElementById("celius").value);
+    let result = ( input * 9/5 + 32);
+    document.getElementById("result").innerText = result;
+  }
+</script>
+</body>
+</html>

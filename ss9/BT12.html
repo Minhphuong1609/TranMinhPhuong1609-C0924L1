@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính lãi ngân hàng (Lãi mẹ đẻ lãi con)</title>
+</head>
+<body>
+<script>
+  let soTienBanDau = +prompt("Nhập số tiền ban đầu: ");
+  let soThang = +prompt("Nhập số tháng gửi: ");
+  let laiSuat = +prompt("Nhập lãi suất hàng tháng (%): ");
+
+  if (isNaN(soTienBanDau) || isNaN(soThang) || isNaN(laiSuat)) {
+    alert("Lỗi cú pháp, vui lòng thử lại");
+  } else if (soTienBanDau <= 0 || soThang <= 0 || laiSuat <= 0) {
+    alert("Vui lòng nhập các giá trị lớn hơn 0");
+  } else {
+    let laiSuatThapPhan = laiSuat / 100;
+    let soTienCuoiKy = soTienBanDau;
+    for (let i = 1; i <= soThang; i++) {
+      soTienCuoiKy += soTienCuoiKy * laiSuatThapPhan;
+    }
+
+    alert("Số tiền sau " + soThang + " tháng là: " + soTienCuoiKy.toFixed(2));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+<h1>Tính Giá Điện</h1>
+<label for="sodien">Nhập số điện tiêu thụ (kWh):</label>
+<input type="number" id="sodien" required min="0">
+<br>
+<br>
+<button onclick="tinhGiaDien()">Tính giá điện</button>
+<div id="result" class="result"></div>
+<script>
+  function tinhGiaDien() {
+    const sodien = parseFloat(document.getElementById('sodien').value);
+    let gia;
+
+    if (sodien < 0) {
+      document.getElementById('result').textContent = "nhà hoang rồi!";
+      return;
+    }
+
+    if (sodien <= 50) {
+      gia = sodien * 1600;
+    } else if (sodien <= 100) {
+      gia = (50 * 1678) + ((sodien - 50) * 1700);
+    } else if (sodien <= 150) {
+      gia = (50 * 1600) + (50 * 1700) + ((sodien - 100) * 2014);
+    } else if (sodien <= 200) {
+      gia = (50 * 1600) + (50 * 1700) + (50 * 2014) + ((sodien - 150) * 2500);
+    } else {
+      gia = (50 * 1600) + (50 * 1700) + (50 * 2014) + (50 * 2500) + ((sodien - 200) * 2800);
+    }
+
+    document.getElementById('result').textContent = `Giá điện phải trả là: ${gia.toFixed(2)} VNĐ`;
+  }
+</script>
+</body>
+</html>

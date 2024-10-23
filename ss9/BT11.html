@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<script>
+  let thuNhap = +prompt("Nhập thu nhập cá nhân (triệu đồng): ");
+  if (isNaN(thuNhap) || thuNhap < 0) {
+    alert("Lỗi cú pháp, vui lòng thử lại");
+  } else if (thuNhap >= 100) {
+    alert("Thuế thu nhập cá nhân là: " + thuNhap * 0.2);
+  } else if (thuNhap >= 50) {
+    alert("Thuế thu nhập cá nhân là: " + thuNhap * 0.1);
+  } else if (thuNhap >= 20) {
+    alert("Thuế thu nhập cá nhân là: " + thuNhap * 0.03);
+  } else {
+    alert("Không có thuế thu nhập cá nhân");
+  }
+</script>
+</body>
+</html>

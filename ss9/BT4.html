@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.</h2>
+<input type="text" placeholder="Nhập chiều dài a" id="a">
+<input type="text" placeholder="Nhập chiều rộng b" id="b">
+<input type="button" onclick="convert()" value="Tính diện tích">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+  function convert() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    if (a > 0 && b > 0) {
+      let result = a * b;
+      document.getElementById("result").innerText = result;
+    } else {
+      alert("Hãy nhập dữ liệu hợp lệ !");
+    }
+  }
+</script>
+</body>
+</html>

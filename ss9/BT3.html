@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h2>
+<input type="text" placeholder="Nhập độ dài" id="m">
+<input type="button" onclick="convert()" value="Tính diện tích">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+  function convert() {
+    let input = parseFloat(document.getElementById("m").value);
+    if (input <= 0) {
+      alert("Hãy nhập chiều dài hợp lệ !")
+      return;
+    }
+    let result = input**2;
+    document.getElementById("result").innerText = result;
+  }
+</script>
+</body>
+</html>
