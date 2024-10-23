@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Tính hoa hồng nhận được dựa trên doanh thu</h2>
+<pre>
+  Ví dụ:
+
+  >= 10000000: 10%
+  >= 5000000: 7%
+  >= 1000000: 5%
+  >= 500000; 3%
+</pre>
+<input type="text" id="money" placeholder="Nhập doanh thu của bạn">
+<input type="button" onclick="check()" id="check" value="Kiểm tra">
+<p id="result"></p>
+<script>
+    function check() {
+        let doanhthu = parseFloat(document.getElementById("money").value);
+        let percent;
+        let tienthuong;
+
+        if (doanhthu > 0) {
+            if (doanhthu >= 10000000) {
+                percent = 0.1;
+                tienthuong = percent * doanhthu;
+
+            } else if (doanhthu >= 5000000) {
+                percent = 0.07;
+                tienthuong = percent * doanhthu;
+            } else if (doanhthu >= 1000000) {
+                percent = 0.05;
+                tienthuong = percent * doanhthu;
+            } else if (doanhthu >= 500000) {
+                percent = 0.03;
+                tienthuong = percent * doanhthu;
+            } else {
+                document.getElementById("result").innerText = "Rất tiếc bạn không có % tháng này";
+            }
+
+            document.getElementById("result").innerText = `Tiền thưởng: ${tienthuong} - hoa hồng: ${percent * 100}%`;
+        } else {
+            alert("Vui lòng nhập doanh thu hợp lệ!");
+        }
+    }
+</script>
+</body>
+</html>

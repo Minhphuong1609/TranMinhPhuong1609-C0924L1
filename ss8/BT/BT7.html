@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Tính cước phí điện thoại</h2>
+<pre>
+    Ví dụ:
+
+    >= 10 phút: 50 đ
+    >= 5 phút: 70 đ
+    < 5 phút: 100 đ
+</pre>
+<input type="number" id="minutes" placeholder="Nhập số phút gọi">
+<input type="button" onclick="calculateFee()" value="Tính cước">
+<p id="result"></p>
+<script>
+  function calculateFee() {
+    let minutes = parseFloat(document.getElementById("minutes").value);
+    let fees = 0;
+
+    if (minutes > 0) {
+      if (minutes >= 10) {
+        fees = minutes * 50;
+      } else if (minutes >= 5) {
+        fees = minutes * 70;
+
+      } else {
+        fees = minutes * 100;
+      }
+    }
+    document.getElementById("result").innerText = `Cước phí của bạn là : ${fees} đồng`;
+  }
+</script>
+</body>
+</html>
