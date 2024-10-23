@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Game "Hãy thử đoán xem" </title>
+</head>
+<body>
+
+<!--Giao diện có 1 nút Button "Chơi"-->
+
+<button onclick="Game()" >Chơi</button>
+
+<script>
+
+  function Game() {
+
+    // Nhập khoảng giá trị
+    let khoang = +prompt("Nhập giá trị bạn muốn đoán trong khoảng lớn nhất là:");
+
+
+    // Sinh số ngẫu nhiên
+    const randomNumber = Math.floor(Math.random() * khoang);
+
+    let count = 0;
+    let guess;
+    do {
+      guess = +prompt("Nhập số bạn đoán là:");
+      count++;
+      if (guess === randomNumber) {
+        alert("Chúc mừng bạn đã đoán đúng!");
+        break;
+      } else if (guess < randomNumber) {
+        alert("Số bạn đoán nhỏ hơn");
+      } else {
+        alert("Số bạn đoán lớn hơn");
+      }
+      if (count === 3) {
+        alert("Chúc bạn may mắn lần sau!");
+        break;
+      }
+    } while (true);
+  }
+
+</script>
+</body>
+</html>

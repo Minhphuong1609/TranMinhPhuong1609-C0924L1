@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra nhiệt độ</title>
+</head>
+<body>
+
+<script>
+
+  let temp;
+
+  do {
+    temp = +prompt("Vui lòng nhập nhiệt độ hiện tại:");
+
+
+    if (temp > 100) {
+      alert("Nhiệt độ quá cao! Vui lòng giảm nhiệt độ.");
+    } else if (temp < 20) {
+      alert("Nhiệt độ quá thấp! Vui lòng tăng nhiệt độ.");
+    }
+  } while (temp > 100 || temp < 20);
+
+  document.write("Nhiệt độ là: " + temp + " Nhiệt độ hiện tại đã phù hợp!");
+
+</script>
+
+</body>
+</html>

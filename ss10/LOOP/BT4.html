@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số chia hết cho 5</title>
+</head>
+<body>
+<script>
+
+    let a = 0, b = 1, c;
+    let count = 0;
+
+    while (count < 20) {
+        if (a % 5 === 0) {
+            break;
+        }
+        c = a + b;
+        a = b;
+        b = c;
+        count++;
+    }
+
+    document.write("Số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + a);
+
+</script>
+</body>
+</html>
