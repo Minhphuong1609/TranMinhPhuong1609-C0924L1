@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let tienVay = +prompt("số tiền vay");
+  let laiSuat = +prompt("nhập lãi suất");
+  let thang = +prompt("số tháng");
+  let tienLai = 0;
+  for (let i = 0; i < thang; i++) {
+    tienLai = tienLai + tienVay * laiSuat;
+  }
+  alert("tiên lãi là: "+tienLai);
+</script>
+</body>
+</html>
