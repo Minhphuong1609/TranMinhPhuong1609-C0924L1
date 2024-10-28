@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Translator</title>
+</head>
+<body>
+<input id="translate" placeholder="Nhập từ vựng">
+<button onclick="translate()">Dịch</button>
+<p id="result"></p>
+
+<script>
+  const dictionary = {
+    dog: "con heo",
+    cat: "con mèo",
+    fish: "con ong",
+    bat: "con dơi"
+  };
+
+  function translate() {
+    const word = document.getElementById("translate").value;
+    const resultElement = document.getElementById("result");
+
+    const translation = dictionary[word.toLowerCase()];
+    resultElement.textContent = translation || "Không tìm thấy";
+  }
+</script>
+</body>
+</html>
