@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 5</title>
+</head>
+<body>
+<script>
+  let input = prompt("Nhập các số nguyên cách nhau bởi dấu phẩy: ");
+  let array = input.split(',').map(Number);
+  let negativeNumbers = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (num < 0) {
+      negativeNumbers.push(num);
+    }
+  }
+  document.write("Mảng các số âm gồm: " + negativeNumbers.join(', '));
+</script>
+</body>
+</html>

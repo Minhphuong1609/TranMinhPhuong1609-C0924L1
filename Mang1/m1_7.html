@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let mangMoi = [];
+  kiemMang= true;
+  let size =+ prompt("nhập đọ dài của mảng: ");
+  let array = new Array(size);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = prompt("nhập phần tử thứ : " +i);
+    if(array[i] == "V") {
+      kiemMang =false;
+    }
+    if (array[i] !== "V") {
+      mangMoi.push(array[i]);
+    }
+  }
+  document.write("Mang = ["+array+"]<br>");
+  if(kiemMang == false) {
+    document.write("Đã xóa phần tử V. Mang mới là: " + mangMoi + "<br>");
+  }
+</script>
+</body>
+</html>

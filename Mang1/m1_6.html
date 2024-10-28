@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 6</title>
+</head>
+<body>
+<script>
+  let input = prompt("Nhập các số nguyên cách nhau bởi dấu phẩy: ");
+  let array = input.split(",").map(Number);
+  let V = parseInt(prompt("Nhập một số nguyên V:"));
+
+  if (array.includes(V)) {
+    document.write("V is in the array" + "<br>");
+  } else {
+    document.write("V is not in the array" + "<br>");
+  }
+  document.write("Mảng: " + array.join(", "));
+</script>
+</body>
+</html>

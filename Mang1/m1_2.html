@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tìm giá trị MAX</title>
+</head>
+<body>
+<script>
+
+  let array = [10, 11, 2, 25, 18, 54, 85, 100, -1, 0,];
+  let max = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+  console.log(max);
+
+  let index = array.indexOf(max);
+  console.log(index);
+
+
+</script>
+</body>
+</html>
