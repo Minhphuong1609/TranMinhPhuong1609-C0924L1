@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đếm số ký tự số</title>
+</head>
+<body>
+<input type="text" id="inputArray" placeholder="Nhập các ký tự (cách nhau bằng dấu cách)">
+<button onclick="countDigits()">Đếm</button>
+<p id="result"></p>
+
+<script>
+  function countDigits() {
+    const inputString = document.getElementById('inputArray').value;
+    const characters = inputString.split(' ');
+
+    let count = 0;
+
+    characters.forEach(char => {
+      if (!isNaN(char)) {
+        count++;
+      }
+    });
+
+    document.getElementById('result').textContent = `Số lượng ký tự số: ${count}`;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let array = prompt("nhap vao mang");
+  let arrayNew = [];
+  document.write("Mang [" + array + "] <br>");
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (array[i][j] == "-") {
+        array[i][j] == "_";
+        arrayNew.push("_");
+      }else {
+        arrayNew.push(array[i][j]);
+      }
+    }
+  }
+  document.write("Mang Moi[" + arrayNew.join(" ") + "] <br>");
+</script>
+</body>
+</html>

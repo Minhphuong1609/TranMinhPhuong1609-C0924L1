@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let chuoi1 = prompt("nhap chuoi 1");
+  let chuoi2 = prompt("nhap chuoi 2");
+  let test = -1;
+  if (chuoi1.length != chuoi2.length) {
+    document.write("hai chuoi khong giong nhau");
+  }else {
+    for (let i = 0; i < chuoi1.length; i++) {
+      for (let j = 0; j < chuoi2.length; j++) {
+        if (chuoi1[i] == chuoi2[i]) {
+          test = 1;
+        }else {
+          test = -1;
+        }
+      }
+    }
+  }
+  if (test == 1) {
+    document.write("hai chuoi giong nhau");
+  } else {
+    document.write("hai chuoi khong giong nhau");
+  }
+</script>
+</body>
+</html>
