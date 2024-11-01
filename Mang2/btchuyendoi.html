@@ -1,0 +1,37 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foot to Meter Converter</title>
+</head>
+<body>
+<input type="number" id="footInput" placeholder="Enter feet">
+<p>feet</p>
+<button onclick="footToMeter()">=</button>
+<p id="meterOutput"></p>
+<p>meters</p>
+
+<br>
+
+<input type="number" id="meterInput" placeholder="Enter meters">
+<p>meters</p>
+<button onclick="meterToFoot()">=</button>
+<p id="footOutput"></p>
+<p>feet</p>
+
+<script>
+  function footToMeter() {
+    const feet = parseFloat(document.getElementById("footInput").value);
+    const meters = feet * 0.3048;
+    document.getElementById("meterOutput").textContent = meters.toFixed(2);
+  }
+
+  function meterToFoot() {
+    const meters = parseFloat(document.getElementById("meterInput").value);
+    const feet = meters * 3.281;
+    document.getElementById("footOutput").textContent = feet.toFixed(2);
+  }
+</script>
+</body>
+</html>
