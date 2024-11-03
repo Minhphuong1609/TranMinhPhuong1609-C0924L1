@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function factorial(n) {
+    return n < 0 ? "Giai thừa không xác định cho số âm." : n <= 1 ? 1 : n * factorial(n - 1);
+  }
+
+  const number = parseInt(prompt("Nhập một số nguyên:"));
+  const result = factorial(number);
+  alert("Giai thừa của " + number + " là: " + result);
+</script>
+</body>
+</html>

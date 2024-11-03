@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let num1 = +prompt("enter number1");
+  let num2 = +prompt("enter number2");
+
+  function doiViTri(num1, num2) {
+    let a = num1;
+    num1 = num2;
+    num2 = a;
+    return [num1, num2];
+  }
+  let result = doiViTri(num1, num2);
+  alert(`Sau khi đổi vị trí: num1 = ${result[0]}, num2 = ${result[1]}`);
+</script>
+</body>
+</html>

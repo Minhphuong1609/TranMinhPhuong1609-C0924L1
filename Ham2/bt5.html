@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isSosanh(a,b,c) {
+        if (a <= b && a <= c ) {
+            document.write(a + " Là số nhỏ nhất");
+        }else if (b <= a && b <= c) {
+            document.write(b + " Là số nhỏ nhất");
+        }else if(c <= a && c <= b) {
+            document.write(c + " Là số nhỏ nhất");
+        }
+    }
+    let num1 = + prompt(" nhập a");
+    let num2 = + prompt(" nhập b");
+    let num3 = + prompt(" nhập c");
+    isSosanh(num1,num2,num3);
+</script>
+</body>
+</html>

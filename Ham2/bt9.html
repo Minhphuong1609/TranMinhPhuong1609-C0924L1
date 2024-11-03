@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  const characters = ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd'];
+  const check = prompt("Nhập ký tự cần kiểm tra:");
+  const count = characters.reduce((acc, char) => char === check ? acc + 1 : acc, 0);
+
+  document.write(`Mảng ký tự : [${characters}]<br>`);
+  document.write(`Số lần xuất hiện của '${check}': ${count > 0 ? count : -1}`);
+</script>
+</body>
+</html>
