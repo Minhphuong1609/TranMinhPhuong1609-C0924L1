@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function checkAscendingArray(arr) {
+    if (arr.length <= 1) {
+      return true;
+    }
+
+    const diff = arr[1] - arr[0];
+
+    for (let i = 2; i < arr.length; i++) {
+      if (arr[i] - arr[i - 1] !== diff) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  const input = prompt("Nhập các số nguyên, cách nhau bởi dấu phẩy:").split(',').map(Number);
+
+  const result = checkAscendingArray(input);
+  console.log(result ? "OK" : "NO");
+</script>
+</body>
+</html>
