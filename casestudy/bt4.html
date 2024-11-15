@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraction Simplifier</title>
+</head>
+<body>
+<script>
+    function gcd(a, b) {
+        if (b === 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+    function simplifyFraction(fraction) {
+        let [numerator, denominator] = fraction.split("/").map(Number);
+
+        if (denominator === 0) {
+            return "Không phải là phân số hợp lệ";
+        }
+
+        if (numerator === 0) {
+            return "0";
+        }
+
+        let gcdValue = gcd(numerator, denominator);
+        numerator /= gcdValue;
+        denominator /= gcdValue;
+
+        return `${numerator}/${denominator}`;
+    }
+
+    let fraction;
+    do {
+        fraction = prompt("Nhập phân số (dạng tử/mẫu, mẫu phải khác 0):");
+
+    } while (!fraction.match(/^\d\/\d$/));
+
+    let result = simplifyFraction(fraction);
+
+    console.log(result);
+</script>
+</body>
+</html>

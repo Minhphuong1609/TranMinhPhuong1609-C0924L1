@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function checkArray() {
+    let size = parseInt(prompt("Enter the number of elements in the array:"));
+    if (isNaN(size) || size <= 0) {
+      console.log("Invalid input: Please enter a positive integer for the number of elements.");
+      return;
+    }
+
+    let arr = [];
+    for (let i = 0; i < size; i++) {
+      let element = parseInt(prompt(`Enter element ${i + 1}:`));
+      if (isNaN(element)) {
+        console.log("Invalid input: Please enter integers only.");
+        return;
+      }
+      arr.push(element);
+    }
+
+    let hasEven = false;
+    let hasOdd = false;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 === 0) {
+        hasEven = true;
+      } else {
+        hasOdd = true;
+      }
+
+      if (hasEven && hasOdd) {
+        console.log("The array is mixed.");
+        return -1;
+      }
+    }
+
+    if (hasEven) {
+      console.log("The array is even.");
+      return 1;
+    } else {
+      console.log("The array is odd.");
+      return 0;
+    }
+  }
+</script>
+</body>
+</html>

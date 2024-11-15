@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <titlle>Bai_5</titlle></title>
+</head>
+<body>
+<script>
+  function findMaxNumber(n) {
+    if (n < 1000 || n > 9999) {
+      return -1;
+    }
+
+    let maxNumber = 0;
+
+    let str = n.toString();
+
+    for (let i = 0; i < str.length; i++) {
+      let newNumber = parseInt(str.slice(0, i) + str.slice(i + 1));
+
+      if (newNumber > maxNumber) {
+        maxNumber = newNumber;
+      }
+    }
+
+    return maxNumber;
+  }
+
+  let n;
+  do {
+    n = prompt("Nhập một số có đúng 4 chữ số:");
+    n = parseInt(n);
+  } while (isNaN(n) || n < 1000 || n > 9999);
+
+  let result = findMaxNumber(n);
+  console.log("Số lớn nhất có thể thu được:", result);
+</script>
+</body>
+</html>
