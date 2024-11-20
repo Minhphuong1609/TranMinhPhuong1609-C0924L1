@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 12</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    button {
+      padding: 5px 8px;
+      margin: 5px;
+      border: 1px solid black;
+      background-color: lightgray;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<p id="result"></p>
+<script>
+  class Student {
+    constructor(studentId, name, className, email, birthday, module) {
+      this.studentId = studentId;
+      this.name = name;
+      this.className = className;
+      this.email = email;
+      this.birthday = birthday;
+      this.module = module;
+    }
+  }
+
+  let students = [
+    new Student("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004", "1"),
+    new Student("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004", "1"),
+    new Student("HV-0003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004", "1")
+  ];
+
+  function displayStudent() {
+    let tableString = `<table>
+                              <tr>
+                                <th>Mã học viên</th>
+                                <th>Tên</th>
+                                <th>Lớp</th>
+                                <th>Email</th>
+                                <th>Ngày sinh</th>
+                                <th>Module</th>
+                              </tr>`;
+    for (let i = 0; i < students.length; i++) {
+      tableString += `<tr>
+                              <td>${students[i].studentId}</td>
+                              <td>${students[i].name}</td>
+                              <td>${students[i].className}</td>
+                              <td>${students[i].email}</td>
+                              <td>${students[i].birthday}</td>
+                              <td>${students[i].module}</td>
+                            </tr>`;
+    }
+
+    tableString += `</table>`;
+    document.getElementById("result").innerHTML = tableString;
+  }
+
+  function studentNewId() {
+    let newIdNumber = students.length + 1;
+    let newId = "HV-" + ("000" + newIdNumber).slice(-4);
+
+    for(let i = 0; i < students.length; i++) {
+      if(students[i].studentId === newId) {
+        newIdNumber++;
+        newId = "HV-" + ("000" + newIdNumber).slice(-4);
+        i = -1;
+      }
+    }
+    return newId;
+  }
+
+  function addStudent() {
+    const studentId = studentNewId();
+
+    let name = prompt("Nhập tên học viên");
+    while (!name) {
+      alert("Tên học viên không được để trống.");
+      name = prompt("Vui lòng nhập lại tên học viên");
+    }
+    while (name.length > 50) {
+      alert("Tên học viên chỉ được chứa tối đa 50 ký tự.");
+      name = prompt("Vui lòng nhập tên học viên");
+    }
+
+    const className = prompt("Nhập lớp học viên");
+    const email = prompt("Nhập email học viên");
+    const birthday = prompt("Nhập ngày sinh học viên");
+
+    let module = parseInt(prompt("Nhập module học viên từ 1 -> 6"));
+    while (isNaN(module) || module < 1 || module > 6) {
+      alert("Module chỉ được nhập từ 1 -> 6");
+      module = parseInt(prompt("Vui lòng nhập module từ 1 -> 6"));
+    }
+
+    if (studentId && name && className && email && birthday && module) {
+      students.push(new Student(studentId, name, className, email, birthday, module));
+      displayStudent();
+    } else {
+      alert("Vui lòng nhập đầy đủ thông tin học viên!");
+    }
+  }
+
+  function findStudent(id) {
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].studentId === id) {
+        return i;
+      }
+    }
+    alert("Mã học viên không tồn tại");
+    return null;
+  }
+
+  function deleteStudent() {
+    const id = prompt("Nhập mã học viên cần xóa");
+    let index = findStudent(id);
+
+    if (index !== null) {
+      if (confirm(`Bạn có muốn xóa học viên ${students[index].name} không?`)) {
+        students.splice(index, 1);
+        displayStudent();
+        alert("Xóa học viên thành công!");
+      }
+    }
+  }
+
+  function editStudent() {
+    const id = prompt("Nhập mã học viên cần sửa chữa");
+    let index = findStudent(id);
+
+    if (index !== null) {
+      students[index].name = prompt("Nhập tên mới", students[index].name);
+      students[index].className = prompt("Nhập lớp mới", students[index].className);
+      students[index].email = prompt("Nhập email mới", students[index].email);
+      students[index].birthday = prompt("Nhập ngày sinh mới", students[index].birthday);
+      students[index].module = prompt("Nhập module mới", students[index].module);
+      displayStudent();
+      alert("Cập nhật thông tin học viên thành công!");
+    }
+  }
+
+  displayStudent();
+
+</script>
+</body>
+</html>

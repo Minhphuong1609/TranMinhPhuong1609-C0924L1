@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        str = str.toLowerCase();
+
+        const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+        let result = [];
+
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+
+            let isVowel = false;
+            for (let j = 0; j < vowels.length; j++) {
+                if (char === vowels[j]) {
+                    isVowel = true;
+                    break;
+                }
+            }
+
+            if (isVowel) {
+                let exists = false;
+                for (let k = 0; k < result.length; k++) {
+                    if (char === result[k]) {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists) {
+                    result.push(char);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    console.log(checkString("hello"));
+    console.log(checkString("Codegym DaNang A"))
+</script>
+</body>
+</html>
