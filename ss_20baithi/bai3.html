@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function nhapThangNam(year, month) {
+    const namNhuan = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+    const ngaytrongThang = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if (namNhuan && month === 2) {
+      return 29;
+    }
+
+    return ngaytrongThang[month - 1];
+  }
+
+  const month = parseInt(prompt("Nhập tháng (MM): "));
+  const year = parseInt(prompt("Nhập năm (yyyy): "));
+
+  if (month < 1 || month > 12 || year < 0) {
+    console.log("Tháng hoặc năm không hợp lệ.");
+  } else {
+    const days = nhapThangNam(year, month);
+    console.log(`Tháng ${month}/${year} có ${days} ngày.`);
+  }
+</script>
+</body>
+</html>

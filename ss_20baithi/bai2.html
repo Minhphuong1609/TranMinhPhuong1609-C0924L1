@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Sohoanhao(number) {
+        if (number <= 0) {
+            return false;
+        }
+
+        let sum = 1;
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                sum += i + (number / i);
+            }
+        }
+
+        return sum === number;
+    }
+
+
+    const number = parseInt(prompt("Nhập một số nguyên dương: "));
+
+
+    if (Sohoanhao(number)) {
+        console.log(number + " là số hoàn hảo.");
+    } else {
+        console.log(number + " không phải là số hoàn hảo.");
+    }
+</script>
+</body>
+</html>

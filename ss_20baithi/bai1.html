@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function tinhTrungBinhCong() {
+    const g = 50;
+    const numbers = [];
+    let sum = 0;
+    let count = 0;
+
+    let n = parseInt(prompt("nhap so luong phan tu (toi da 50): "));
+    while (n > g ) {
+
+      n = parseInt(prompt("So luong phan tu khong qua 50. Vui long nhap lai: "));
+    }
+
+    for (let i = 0; i < n; i++) {
+      numbers[i] = parseInt(prompt("Nhap phan tu thu " + (i + 1) + ": "));
+    }
+
+    for (let i = 0; i < n; i++) {
+      if (numbers[i] % 3 === 0) {
+        sum += numbers[i];
+        count++;
+      }
+    }
+
+    if (count === 0) {
+      console.log("Khong co so nao chia het cho 3.");
+    } else {
+      const average = sum / count;
+      console.log("TBC cac so chia het cho 3: " + average);
+    }
+  }
+
+  tinhTrungBinhCong();
+</script>
+</body>
+</html>

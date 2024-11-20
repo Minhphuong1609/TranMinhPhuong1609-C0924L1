@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class NhanVien {
+    constructor(stt, hoTen, ngaySinh, diaChi, luong, chucVu) {
+      this.stt = stt;
+      this.hoTen = hoTen;
+      this.ngaySinh = ngaySinh;
+      this.diaChi = diaChi;
+      this.luong = luong;
+      this.chucVu = chucVu;
+    }
+  }
+
+
+  const danhSachNhanVien = [];
+
+
+  danhSachNhanVien.push(new NhanVien(1, "Trương Tân A", "11-11-1997", "Quảng Nam", 2000, "Abc"));
+  danhSachNhanVien.push(new NhanVien(2, "Trương Tân B", "11-11-1998", "Đà Nẵng", 2000, "Abc"));
+  danhSachNhanVien.push(new NhanVien(3, "Trương Tân C", "11-11-1999", "Huế", 2000, "Abc"));
+
+
+  function sapXepTheoHoTen(a, b) {
+    return a.hoTen.localeCompare(b.hoTen);
+  }
+
+
+  danhSachNhanVien.sort(sapXepTheoHoTen);
+
+
+  function hienThiDanhSach() {
+    const danhSachElement = document.getElementById("danh-sach");
+    let html = "<table><tr><th>STT</th><th>Họ và tên</th><th>Ngày sinh</th><th>Địa chỉ</th><th>Lương</th><th>Chức vụ</th></tr>";
+    danhSachNhanVien.forEach(nhanVien => {
+      html += `<tr><td>${nhanVien.stt}</td><td>${nhanVien.hoTen}</td><td>${nhanVien.ngaySinh}</td><td>${nhanVien.diaChi}</td><td>${nhanVien.luong}</td><td>${nhanVien.chucVu}</td></tr>`;
+    });
+    html += "</table>";
+    danhSachElement.innerHTML = html;
+  }
+
+  hienThiDanhSach();
+</script>
+</body>
+</html>
